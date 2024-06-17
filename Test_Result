@@ -1,0 +1,49 @@
+public class Test {
+
+    public static void main(String[] args) {
+        testExpression();
+    }
+
+    public static void testExpression() {
+        String[] expressions = {
+                "3+2",
+                "8-3",
+                "8*2",
+                "4/2",
+                "5*-1"
+
+
+        };
+
+        String[] expectedResults = {
+                "5.0",
+                "5.0",
+                "16.0",
+                "2.0",
+                "-5.0"
+
+
+        };
+
+        for (int i = 0; i < expressions.length; i++) {
+            String expression = expressions[i];
+            String expectedResult = expectedResults[i];
+            String actualResult = Calculator.Run(expression);
+
+            if (expectedResult.equals(actualResult)) {
+                System.out.println("Test case " + (i + 1) + " Passed");
+            } else {
+                System.out.println("Test case " + (i + 1) + "Failed" + "Expected: " + expectedResult);
+                System.out.println("Actual: " + actualResult);
+            }
+        }
+    }
+
+}
+
+
+
+
+
+Sve računske operacije se isvršavaju uspešno, osim množenja sa negativnim brojem u kom je drugi činilac negativan broj te umesto ispravnog rešenja pokazuje grešku.
+Takođe, nasumičnim testovima, došlo se do toga da prilikom deljenja sa 0, rešenje je Infinity, možda bi neka druga poruka bila prikladnija.
